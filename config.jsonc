@@ -1,0 +1,96 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "top",
+	
+	"modules-left": [
+		"hyprland/workspaces",
+	],
+	
+	"modules-center": [
+		"clock#1",
+		"clock#2",
+		"clock#3",	
+	],
+	
+	"modules-right": [
+		"custom/cpu",
+		"custom/memory",
+		"custom/disk",
+		"pulseaudio",
+		"tray",		
+		"custom/powermenu"
+	],
+
+	"hyprland/workspaces": {
+	    "disable-scroll": true,
+	    "format": "{name}",
+	    "all-outputs": true,
+	    "persistent-workspaces": {
+	        "*": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	    }
+	},
+	
+	"clock#1": {
+		"format": "{:%A}",
+		"tooltip": false
+	},
+	
+	"clock#2": {
+		"format": "{:%B %e, %Y}",
+		"tooltip": false
+	},
+	
+	"clock#3": {
+		"format": "{:%I:%M %p}",		
+		"tooltip": false
+	},  
+
+
+	"pulseaudio": {
+		"format": "{icon}  {volume:2}%",
+		"format-bluetooth": "{icon}  {volume}%",
+		"format-muted": "MUTE",
+		"format-icons": {
+			"headphones": "",
+			"default": [
+				"",
+				""
+			]
+		},
+		"scroll-step": 5,
+		    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		        "on-click-right": "pavucontrol",
+		        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+		        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"	
+	},
+	
+	"custom/disk": {
+	    "exec": "~/.config/waybar/scripts/disk_usage.sh",
+	    "interval": 30,
+	    "format": "{}"
+	},
+	
+	"tray": {
+		"icon-size": 18
+	},
+	
+	"custom/powermenu": {
+		"format": "⏻ ",
+		"tooltip": "Power Menu",
+		"on-click": "~/.config/rofi/hyprpowermenu.sh"
+	},
+	
+	"custom/memory": {
+	  "exec": "~/.config/waybar/scripts/memory.sh",
+	  "interval": 5,
+	  "tooltip": false
+	},
+	
+	"custom/cpu": {
+	    "exec": "~/.config/waybar/scripts/cpu_usage_freq.sh",
+	    "interval": 5,
+	    "tooltip": false
+	}
+}
