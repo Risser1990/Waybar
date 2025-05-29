@@ -1,156 +1,123 @@
 @import '../../.cache/wal/colors-waybar.css';
 
+/* === Global === */
 @define-color background rgba(0, 0, 0, 0.3);
 @define-color text @foreground;
 @define-color bg0 @color0;
 
 * {
-    font-size: 16px;
+    font-size: 14px;
     font-family: "MesloLGL Nerd Font";
     border: none;
     border-radius: 0;
+    padding: 0px 5px; /* Avoid global padding */
 }
 
 window#waybar {
     background: @background;
     color: @text;
+    min-height: 20px;
+    margin: 10px 6px 0 6px; /* top right bottom left */
 }
 
+/* === Shared Module Box Styles === */
+#clock.1, #clock.2, #clock.3,
+#custom-cpu, #custom-memory, #custom-disk,
+#pulseaudio, #tray, #custom-powermenu {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 9999px;
+    margin: 2px 4px;
+}
+
+/* === Individual Modules === */
 #clock.1, #clock.2, #clock.3 {
     font-size: 15px;
     color: @color4;
-    border-top: 2px solid @color4;
-    border-bottom: 2px solid @color4;
-    border-left: 1px solid @color4;   
-    border-right: 1px solid @color4;  
+    border: 2px solid @color4;
+    border-left-width: 1px;
+    border-right-width: 1px;
     margin: 0 10px;
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 5px 12px;              
-    border-radius: 9999px;          
+    padding: 0px 12px; 
 }
 
+#custom-cpu {
+    font-size: 12px;
+    color: @color1;
+    border: 2px solid @color1;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
 
+#custom-memory {
+    font-size: 12px;
+    color: @color2;
+    border: 2px solid @color2;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+#custom-disk {
+    font-size: 12px;
+    color: @color3;
+    border: 2px solid @color3;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+#pulseaudio {
+    color: @color6;
+    border: 2px solid @color6;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+#tray {
+    color: @color7;
+    border: 2px solid @color7;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+#custom-powermenu {
+    color: @color9;
+    font-size: 14px;
+    border: 2px solid @color9;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    padding: 0 10px;
+}
+
+/* === Workspaces === */
 #workspaces {
-    border-bottom: 2px solid @color5;
-    border-top: 2px solid @color5;
-    border-left: 1px solid @color5;
-    border-right: 1px solid @color5;
-    margin: 0 4px;
-    color: @color5;    
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 5px 12px;              
-    border-radius: 9999px;   
+    color: @color5;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid @color5;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    padding: 0 2px;
+    margin: 0 2px;
+    border-radius: 9999px;
 }
 
 #workspaces button {
-    padding: 0 4px;
-    margin: 2px 4px;
+    padding: 0 2px;
+    margin: 2px 2px;
     border: none;
-    border-top: 2px solid transparent;             
+    border-top: 2px solid transparent;
     color: @color5;
+    border-radius: 9999px;
 }
 
 #workspaces button:not(.empty) {
-    border-top: 2px solid @color5;
-    border-bottom: 2px solid @color5;
-    border-left: 1px solid @color5;
-    border-right: 1px solid @color5;
-    padding: 2px 4px;
-    border-radius: 9999px;            
+    border: 2px solid @color5;
+    border-left-width: 1px;
+    border-right-width: 1px;
 }
 
-#workspaces button:hover {
-    background: @color5;
-    color: @background;
-    padding: 2px 6px; 
-    border-radius: 9999px;  
-}
-
+#workspaces button:hover,
 #workspaces button.focused,
 #workspaces button.active {
     background: @color5;
     color: @background;
-    font-weight: bold;    
-    border-radius: 9999px;  
-    padding: 2px 6px;       
-}
-
-
-#custom-cpu {
-	font-size: 12px;
-	color: @color1;
-	border-top: 2px solid @color1;
-    border-bottom: 2px solid @color1;
-    border-left: 1px solid @color1;
-    border-right: 1px solid @color1;
-    margin: 2px 4px;
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 5px 12px;             
-    border-radius: 9999px;   
-}
-
-#custom-memory {
-	font-size: 12px;
-	color: @color2;
-	border-top: 2px solid @color2;
-    border-bottom: 2px solid @color2;
-    border-left: 1px solid @color2;
-    border-right: 1px solid @color2;
-    margin: 2px 4px;    
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 5px 12px;            
-    border-radius: 9999px;   
-}
-
-#custom-disk {
-	font-size: 12px;
-	color: @color3;
-	border-top: 2px solid @color3;
-    border-bottom: 2px solid @color3;
-    border-left: 1px solid @color3;
-    border-right: 1px solid @color3;    
-    margin: 2px 4px;  
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 5px 12px;            
-    border-radius: 9999px;  
-}
-
-#pulseaudio {
-	font-size: 14px;
-	color: @color6;
-	border-top: 2px solid @color6;
-    border-bottom: 2px solid @color6;
-    border-left: 1px solid @color6;
-    border-right: 1px solid @color6;
-    margin: 2px 4px;    
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 5px 12px;              
-    border-radius: 9999px;  
-}
-
-#tray {
-	font-size: 14px;
-	color: @color7;
-	border-top: 2px solid @color7;
-    border-bottom: 2px solid @color7;
-    border-left: 1px solid @color7;
-    border-right: 1px solid @color7;
-    margin: 2px 4px;
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 5px 12px;              
-    border-radius: 9999px;  
-}
-
-#custom-powermenu {
-	font-size: 14px;
-	color: @color9;
-	border-top: 2px solid @color9;
-    border-bottom: 2px solid @color9;
-    border-left: 1px solid @color9;
-    border-right: 1px solid @color9;
-    padding: 0px 10px;
-    margin: 2px 4px;    
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 5px 12px;             
-    border-radius: 9999px;  
+    font-weight: bold;
 }
