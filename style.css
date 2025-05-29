@@ -121,3 +121,14 @@ window#waybar {
     color: @background;
     font-weight: bold;
 }
+
+#window {
+    font-size: 10px;
+    color: @text;
+    padding: 0 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid @color10;
+    border-radius: 9999px;
+    margin: 2px 4px;
+    min-width: 200px; /* Optional: keeps space reserved */
+}
