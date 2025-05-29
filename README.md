@@ -11,4 +11,4 @@ right-click opens pavucontrol
 
 scroll for volume control
 
-![Alt text](screenshot.png)
+![Alt text](2025-05-28-214449_hyprshot.png)
